@@ -1,0 +1,33 @@
+// breakpoint
+$sizes: pc,sp;
+
+$breakpoint: (
+    'pc': 'screen and (min-width: 1024px)',
+    'sp': 'screen and (max-width: 480px)',
+) !default;
+
+@mixin mq ($size: pc){
+    @media #{ map-get( $breakpoint, $size ) } {
+        @content;
+    }
+}
+
+@mixin font_alka {
+    font-family: alkaline,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    @content;
+}
+
+// 300,500,700
+@mixin font_mincho {
+    font-family: vdl-v7mincho,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+@mixin font_yuGothic {
+    font-family: yu-gothic-pr6n,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
