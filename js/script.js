@@ -1,3 +1,13 @@
+//タブレット表示用
+$(function(){
+    var ua = navigator.userAgent;
+    if((ua.indexOf('iPhone') > 0) || ua.indexOf('iPod') > 0 || (ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0)){
+        $('head').prepend('<meta name="viewport" content="width=device-width,initial-scale=1">');
+    } else {
+        $('head').prepend('<meta name="viewport" content="width=1200">');
+    }
+});
+
 //リンククリック時のスクロール処理
 $('a[href^="#"]').click(function(){
     // 移動先を50px下にずらす
@@ -141,4 +151,10 @@ $('.header_sp .logo a').click(function(){
         "background-color": "unset",
         "opacity": "unset"
     });
+});
+
+var video = document.getElementsByTagName('video')[0];
+video.addEventListener('ended',function(){
+    console.log("finished video");
+    $(".intro").fadeOut(1000);
 });
